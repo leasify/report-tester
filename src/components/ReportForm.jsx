@@ -20,12 +20,12 @@ export default function ReportForm({ onCreated }) {
     <form onSubmit={handleSubmit} className="space-y-2">
       <textarea
         className="border p-2 w-full"
-        placeholder="Skriv rapport..."
+        placeholder="Write report..."
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
       <button className="bg-green-500 text-white p-2" type="submit">
-        Skicka rapport
+        Send report
       </button>
     </form>
   );
