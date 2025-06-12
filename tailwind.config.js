@@ -1,5 +1,6 @@
+// Tailwind only scans source files; no root index.html is present
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: ["./src/**/*.{js,jsx}"],
   theme: {
     extend: {},
   },
