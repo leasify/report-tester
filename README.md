@@ -1,8 +1,8 @@
-# Rapport-app
+# Report App
 
-Den här koden innehåller en minimal React-applikation som byggs med Vite och Tailwind CSS.
+This repository contains a minimal React application built with Vite and Tailwind CSS.
 
-## Struktur
+## Structure
 
 ```
 report-tester/
@@ -23,20 +23,20 @@ report-tester/
         └── ReportList.jsx
 ```
 
-## API-klient
+## API client
 
-`src/api/client.js` skapar en Axios-klient med basadress `https://api.dindoman.se`. Den lägger till en interceptor som automatiskt bifogar en bearer-token från `localStorage` till varje begäran.
+`src/api/client.js` creates an Axios client with the base URL `https://app.leasify.se/api/v3`. It adds an interceptor that automatically attaches a bearer token from `localStorage` to every request.
 
-## Utveckling
+## Development
 
-Installera beroenden och starta utvecklingsservern:
+Install dependencies and start the development server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-För att bygga projektet kör:
+To build the project run:
 
 ```bash
 npm run build

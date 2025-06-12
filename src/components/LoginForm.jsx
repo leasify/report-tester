@@ -39,22 +39,26 @@ export default function LoginForm({ onLogin }) {
         </svg>
         <span className="mt-2 text-3xl font-bold">ACME</span>
       </div>
+      <p className="mb-4 text-center text-sm text-gray-700">
+        This demo application uses Leasify to retrieve reports for IFRS&nbsp;16
+        accounting.
+      </p>
       <form onSubmit={handleSubmit} className="space-y-2">
         <input
           className="border p-2 w-full"
-          placeholder="Användarnamn"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
           className="border p-2 w-full"
-          placeholder="Lösenord"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button className="bg-blue-500 text-white p-2 w-full" type="submit">
-          Logga in
+          Log in
         </button>
       </form>
     </div>
