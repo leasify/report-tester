@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'https://api.dindomän.se',
+  baseURL: 'https://api.dindoman.se',
   withCredentials: true,
 });
 
