@@ -14,7 +14,7 @@ function App() {
   if (!loggedIn) return <LoginForm onLogin={() => setLoggedIn(true)} />;
 
   return (
-    <div className="max-w-3xl mx-auto mt-6 space-y-6">
+    <div className="max-w-3xl mx-auto mt-6 space-y-6 bg-white p-6 rounded shadow">
       <ReportForm onCreated={() => {}} />
       <ReportList />
     </div>

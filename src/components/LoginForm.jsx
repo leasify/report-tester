@@ -18,7 +18,7 @@ export default function LoginForm({ onLogin }) {
   };
 
   return (
-    <div className="max-w-xs mx-auto mt-10">
+    <div className="max-w-xs mx-auto mt-10 bg-white p-6 rounded shadow">
       <div className="flex flex-col items-center mb-6">
         <svg
           className="w-16 h-16 text-green-600"
