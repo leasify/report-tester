@@ -1,5 +1,3 @@
 import client from './client';
 
-export async function ping() {
-  return client.get('/ping');
-}
+export const ping = () => client.get('/ping');
