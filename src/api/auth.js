@@ -1,3 +1,5 @@
 import client from './client';
 
-export const ping = () => client.get('/ping');
+export function ping() {
+  return client.get('/ping');
+}
