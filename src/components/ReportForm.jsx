@@ -24,7 +24,7 @@ export default function ReportForm({ onCreated }) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <button className="bg-green-500 text-white p-2" type="submit">
+      <button className="p-2" type="submit">
         Send report
       </button>
     </form>

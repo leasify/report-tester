@@ -5,3 +5,11 @@
 body {
   @apply bg-gradient-to-br from-purple-200 via-pink-100 to-blue-200 min-h-screen;
 }
+
+button {
+  @apply bg-brandOrange text-white;
+}
+
+button:hover {
+  @apply bg-brandBlue;
+}
