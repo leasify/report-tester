@@ -16,7 +16,8 @@ export default function LoginForm({ onLogin }) {
       if (onLogin) onLogin();
     } catch (err) {
       console.error(err);
-      alert('Login failed');
+      const msg = err?.response?.data?.message || err.message || 'Unknown error';
+      alert(`Login failed: ${msg}`);
     }
   };
 

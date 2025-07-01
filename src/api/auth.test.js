@@ -3,8 +3,8 @@ import client from './client.js';
 import { login } from './auth.js';
 
 describe('login', () => {
-  it('includes device_name when VITE_DEVICE_NAME is set', async () => {
-    process.env.VITE_DEVICE_NAME = 'MyDevice';
+  it('includes device_name when DEVICE_NAME is set', async () => {
+    process.env.DEVICE_NAME = 'MyDevice';
     const mock = new MockAdapter(client);
     mock.onPost('/login').reply(200, { token: 'ok' });
 
@@ -17,10 +17,10 @@ describe('login', () => {
     });
 
     mock.restore();
-    delete process.env.VITE_DEVICE_NAME;
+    delete process.env.DEVICE_NAME;
   });
 
-  it('omits device_name when VITE_DEVICE_NAME is not set', async () => {
+  it('omits device_name when DEVICE_NAME is not set', async () => {
     const mock = new MockAdapter(client);
     mock.onPost('/login').reply(200, { token: 'ok' });
 
