@@ -12,7 +12,8 @@ export default function WhoAmI() {
       setShow(true);
     } catch (err) {
       console.error(err);
-      alert('Failed to load info');
+      const msg = err?.response?.data?.message || err.message || 'Unknown error';
+      alert(`Failed to load info: ${msg}`);
     }
   };
 
