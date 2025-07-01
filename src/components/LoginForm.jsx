@@ -4,6 +4,9 @@ import { login } from '../api/auth';
 export default function LoginForm({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const deviceName =
+    import.meta?.env?.VITE_DEVICE_NAME ||
+    (typeof process !== 'undefined' ? process.env.VITE_DEVICE_NAME : undefined);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,6 +46,11 @@ export default function LoginForm({ onLogin }) {
         This demo application uses Leasify to retrieve reports for IFRS&nbsp;16
         accounting.
       </p>
+      {deviceName && (
+        <p className="mb-4 text-center text-xs text-gray-500">
+          Device name: {deviceName}
+        </p>
+      )}
       <form onSubmit={handleSubmit} autoComplete="on" className="space-y-2">
         <input
           type="email"
