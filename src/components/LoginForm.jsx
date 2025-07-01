@@ -5,11 +5,11 @@ export default function LoginForm({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const deviceName =
-    import.meta?.env?.DEVICE_NAME ||
+    (import.meta.env && import.meta.env.DEVICE_NAME) ||
     (typeof process !== 'undefined' ? process.env.DEVICE_NAME : undefined) ||
     'ACME';
   const apiBase =
-    import.meta?.env?.API_BASE_URL ||
+    (import.meta.env && import.meta.env.API_BASE_URL) ||
     (typeof process !== 'undefined' ? process.env.API_BASE_URL : undefined) ||
     'https://app.leasify.se/api/v3';
 
