@@ -47,8 +47,8 @@ DEVICE_NAME=MyDevice
 ```
 
 When undefined, the client will default to Leasify's production API.
-When `DEVICE_NAME` is not set, login requests will omit the `device_name`
-parameter.
+When `DEVICE_NAME` is not set, login requests will use `ACME` as the
+`device_name` parameter.
 
 ## Authentication
 

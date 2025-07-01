@@ -9,9 +9,9 @@ export function ping() {
 export function login(email, password) {
   const deviceName =
     import.meta?.env?.DEVICE_NAME ||
-    (typeof process !== 'undefined' ? process.env.DEVICE_NAME : undefined);
-  const payload = { email, password };
-  if (deviceName) payload.device_name = deviceName;
+    (typeof process !== 'undefined' ? process.env.DEVICE_NAME : undefined) ||
+    'ACME';
+  const payload = { email, password, device_name: deviceName };
   return client.post('/login', payload);
 }
 

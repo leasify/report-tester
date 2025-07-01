@@ -6,7 +6,8 @@ export default function LoginForm({ onLogin }) {
   const [password, setPassword] = useState('');
   const deviceName =
     import.meta?.env?.DEVICE_NAME ||
-    (typeof process !== 'undefined' ? process.env.DEVICE_NAME : undefined);
+    (typeof process !== 'undefined' ? process.env.DEVICE_NAME : undefined) ||
+    'ACME';
 
   const handleSubmit = async (e) => {
     e.preventDefault();

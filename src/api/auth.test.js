@@ -20,7 +20,7 @@ describe('login', () => {
     delete process.env.DEVICE_NAME;
   });
 
-  it('omits device_name when DEVICE_NAME is not set', async () => {
+  it('uses ACME as device_name when DEVICE_NAME is not set', async () => {
     const mock = new MockAdapter(client);
     mock.onPost('/login').reply(200, { token: 'ok' });
 
@@ -29,6 +29,7 @@ describe('login', () => {
     expect(JSON.parse(request.data)).toEqual({
       email: 'user',
       password: 'pass',
+      device_name: 'ACME',
     });
 
     mock.restore();
