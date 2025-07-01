@@ -3,7 +3,7 @@ import axios from 'axios';
 // Allow overriding the API base URL using an environment variable. If none is
 // provided, default to Leasify's production API.
 const apiBase =
-  import.meta?.env?.API_BASE_URL ||
+  (import.meta.env && import.meta.env.API_BASE_URL) ||
   (typeof process !== 'undefined' ? process.env.API_BASE_URL : undefined) ||
   'https://app.leasify.se/api/v3';
 

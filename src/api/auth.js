@@ -8,7 +8,7 @@ export function ping() {
 // in localStorage and used as a bearer token for subsequent requests.
 export function login(email, password) {
   const deviceName =
-    import.meta?.env?.DEVICE_NAME ||
+    (import.meta.env && import.meta.env.DEVICE_NAME) ||
     (typeof process !== 'undefined' ? process.env.DEVICE_NAME : undefined) ||
     'ACME';
   const payload = { email, password, device_name: deviceName };
