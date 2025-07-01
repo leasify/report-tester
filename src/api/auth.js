@@ -14,3 +14,7 @@ export function login(email, password) {
   if (deviceName) payload.device_name = deviceName;
   return client.post('/login', payload);
 }
+
+export function whoami() {
+  return client.get('/whoami');
+}

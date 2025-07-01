@@ -3,6 +3,7 @@ import LoginForm from './components/LoginForm';
 import ReportForm from './components/ReportForm';
 import ReportList from './components/ReportList';
 import { ping } from './api/auth';
+import WhoAmI from './components/WhoAmI';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -17,6 +18,7 @@ function App() {
     <div className="max-w-3xl mx-auto mt-6 space-y-6 bg-white p-6 rounded shadow">
       <ReportForm onCreated={() => {}} />
       <ReportList />
+      <WhoAmI />
     </div>
   );
 }
