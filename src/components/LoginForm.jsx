@@ -43,8 +43,11 @@ export default function LoginForm({ onLogin }) {
         This demo application uses Leasify to retrieve reports for IFRS&nbsp;16
         accounting.
       </p>
-      <form onSubmit={handleSubmit} className="space-y-2">
+      <form onSubmit={handleSubmit} autoComplete="on" className="space-y-2">
         <input
+          type="email"
+          name="email"
+          autoComplete="username"
           className="border p-2 w-full"
           placeholder="Email"
           value={email}
@@ -52,6 +55,8 @@ export default function LoginForm({ onLogin }) {
         />
         <input
           type="password"
+          name="password"
+          autoComplete="current-password"
           className="border p-2 w-full"
           placeholder="Password"
           value={password}
