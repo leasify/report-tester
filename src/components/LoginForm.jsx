@@ -8,6 +8,10 @@ export default function LoginForm({ onLogin }) {
     import.meta?.env?.DEVICE_NAME ||
     (typeof process !== 'undefined' ? process.env.DEVICE_NAME : undefined) ||
     'ACME';
+  const apiBase =
+    import.meta?.env?.API_BASE_URL ||
+    (typeof process !== 'undefined' ? process.env.API_BASE_URL : undefined) ||
+    'https://app.leasify.se/api/v3';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,6 +56,9 @@ export default function LoginForm({ onLogin }) {
         <p className="mb-4 text-center text-xs text-gray-500">
           device_name={deviceName}
         </p>
+      )}
+      {apiBase && (
+        <p className="mb-4 text-center text-xs text-gray-500">url={apiBase}</p>
       )}
       <form onSubmit={handleSubmit} autoComplete="on" className="space-y-2">
         <input
