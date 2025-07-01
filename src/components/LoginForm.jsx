@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { login } from '../api/auth';
+import { setToken } from '../api/client';
 
 export default function LoginForm({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ export default function LoginForm({ onLogin }) {
     e.preventDefault();
     try {
       const { data } = await login(email, password);
-      localStorage.setItem('token', data.token);
+      setToken(data.token);
       if (onLogin) onLogin();
     } catch (err) {
       console.error(err);
