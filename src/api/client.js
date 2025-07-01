@@ -12,6 +12,19 @@ const client = axios.create({
   withCredentials: true,
 });
 
+export function setToken(token) {
+  if (token) {
+    localStorage.setItem('token', token);
+    client.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    localStorage.removeItem('token');
+    delete client.defaults.headers.common.Authorization;
+  }
+}
+
+// Initialize default header from any existing token on page load
+setToken(localStorage.getItem('token'));
+
 client.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) config.headers.Authorization = `Bearer ${token}`;

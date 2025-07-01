@@ -1,5 +1,5 @@
 import MockAdapter from 'axios-mock-adapter';
-import client from './client.js';
+import client, { setToken } from './client.js';
 
 describe('axios client', () => {
   it('adds Authorization header when token exists', async () => {
@@ -13,5 +13,15 @@ describe('axios client', () => {
     expect(request.headers.Authorization).toBe('Bearer my-token');
 
     mock.restore();
+  });
+
+  it('setToken stores token and updates default header', () => {
+    setToken('abc');
+    expect(localStorage.getItem('token')).toBe('abc');
+    expect(client.defaults.headers.common.Authorization).toBe('Bearer abc');
+
+    setToken(null);
+    expect(localStorage.getItem('token')).toBeNull();
+    expect(client.defaults.headers.common.Authorization).toBeUndefined();
   });
 });
