@@ -36,15 +36,19 @@ from `localStorage` to every request.
 
 The application reads configuration from Vite environment variables. To change
 the API base URL, define `VITE_API_BASE_URL` before running the dev server or
-build. Create an `.env` file in the project root or export the variable in your
-shell:
+build. You can also specify a device name that will be sent when logging in by
+setting `VITE_DEVICE_NAME`. Create an `.env` file in the project root or export
+these variables in your shell:
 
 ```bash
 # .env
 VITE_API_BASE_URL=https://my-api.example.com/api/v3
+VITE_DEVICE_NAME=MyDevice
 ```
 
 When undefined, the client will default to Leasify's production API.
+When `VITE_DEVICE_NAME` is not set, login requests will omit the `device_name`
+parameter.
 
 ## Authentication
 
