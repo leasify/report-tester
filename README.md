@@ -56,7 +56,7 @@ When `DEVICE_NAME` is not set, login requests will use `ACME` as the
 ## Authentication
 
 Logga in med e-postadress och lösenord mot `/login`-endpointen. Svaret
-innehåller en token som ska sparas i `localStorage` under nyckeln
+innehåller en `bearer`-token som ska sparas i `localStorage` under nyckeln
 `token`. Axios-klienten läser automatiskt detta värde och skickar det som
 `Bearer` i `Authorization`-headern för alla efterföljande anrop.
 Vid misslyckad inloggning visas felmeddelandet från servern.

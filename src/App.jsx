@@ -3,6 +3,7 @@ import LoginForm from './components/LoginForm';
 import ReportForm from './components/ReportForm';
 import ReportList from './components/ReportList';
 import { ping } from './api/auth';
+import { setToken } from './api/client';
 import WhoAmI from './components/WhoAmI';
 
 function App() {
@@ -13,6 +14,11 @@ function App() {
     'ACME';
   const token = localStorage.getItem('token');
 
+  const logout = () => {
+    setToken(null);
+    setLoggedIn(false);
+  };
+
   useEffect(() => {
     ping().then(() => setLoggedIn(true)).catch(() => setLoggedIn(false));
   }, []);
@@ -21,7 +27,10 @@ function App() {
     <div className="max-w-3xl mx-auto mt-6 space-y-6 bg-white p-6 rounded shadow">
       <ReportForm onCreated={() => {}} />
       <ReportList />
-      <WhoAmI />
+      <div className="flex space-x-2">
+        <WhoAmI />
+        <button onClick={logout} className="p-2">Log out</button>
+      </div>
     </div>
   ) : (
     <LoginForm onLogin={() => setLoggedIn(true)} />
@@ -35,9 +44,9 @@ function App() {
         </h1>
       </header>
       {mainContent}
-      {loggedIn && token && (
+      {loggedIn && (
         <footer className="mt-4 p-2 text-center text-xs text-gray-500">
-          bearer={token}
+          bearer={token || ''}
         </footer>
       )}
     </>
