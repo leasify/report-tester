@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { config as loadEnv } from 'dotenv';
+import path from 'path';
 
-loadEnv();
+// Always load environment variables from the project root .env file
+loadEnv({ path: path.resolve(process.cwd(), '.env') });
 
 export default defineConfig({
   plugins: [react()],
