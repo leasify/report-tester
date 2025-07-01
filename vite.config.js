@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { config as loadEnv } from 'dotenv';
+
+loadEnv();
 
 export default defineConfig({
   plugins: [react()],
