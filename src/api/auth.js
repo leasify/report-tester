@@ -7,7 +7,9 @@ export function ping() {
 // Log in with email and password. The API will return a token that can be stored
 // in localStorage and used as a bearer token for subsequent requests.
 export function login(email, password) {
-  const deviceName = import.meta?.env?.VITE_DEVICE_NAME || process.env.VITE_DEVICE_NAME;
+  const deviceName =
+    import.meta?.env?.VITE_DEVICE_NAME ||
+    (typeof process !== 'undefined' ? process.env.VITE_DEVICE_NAME : undefined);
   const payload = { email, password };
   if (deviceName) payload.device_name = deviceName;
   return client.post('/login', payload);
