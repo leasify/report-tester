@@ -6,7 +6,7 @@ describe('login', () => {
   it('includes device_name when DEVICE_NAME is set', async () => {
     process.env.DEVICE_NAME = 'MyDevice';
     const mock = new MockAdapter(client);
-    mock.onPost('/login').reply(200, { token: 'ok' });
+    mock.onPost('/login').reply(200, { bearer: 'ok' });
 
     await login('user', 'pass');
     const request = mock.history.post[0];
@@ -22,7 +22,7 @@ describe('login', () => {
 
   it('uses ACME as device_name when DEVICE_NAME is not set', async () => {
     const mock = new MockAdapter(client);
-    mock.onPost('/login').reply(200, { token: 'ok' });
+    mock.onPost('/login').reply(200, { bearer: 'ok' });
 
     await login('user', 'pass');
     const request = mock.history.post[0];

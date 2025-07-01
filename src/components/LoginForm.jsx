@@ -18,7 +18,7 @@ export default function LoginForm({ onLogin }) {
     e.preventDefault();
     try {
       const { data } = await login(email, password);
-      setToken(data.token);
+      setToken(data.bearer);
       if (onLogin) onLogin();
     } catch (err) {
       console.error(err);
