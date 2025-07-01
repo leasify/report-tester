@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import client from '../api/client';
+import { login } from '../api/auth';
 
 export default function LoginForm({ onLogin }) {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await client.post('/login', { username, password });
+      const { data } = await login(email, password);
       localStorage.setItem('token', data.token);
       if (onLogin) onLogin();
     } catch (err) {
@@ -46,9 +46,9 @@ export default function LoginForm({ onLogin }) {
       <form onSubmit={handleSubmit} className="space-y-2">
         <input
           className="border p-2 w-full"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"

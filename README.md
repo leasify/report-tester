@@ -46,6 +46,13 @@ VITE_API_BASE_URL=https://my-api.example.com/api/v3
 
 When undefined, the client will default to Leasify's production API.
 
+## Authentication
+
+Logga in med e-postadress och lösenord mot `/login`-endpointen. Svaret
+innehåller en token som ska sparas i `localStorage` under nyckeln
+`token`. Axios-klienten läser automatiskt detta värde och skickar det som
+`Bearer` i `Authorization`-headern för alla efterföljande anrop.
+
 ## Development
 
 Install dependencies and start the development server:
