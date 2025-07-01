@@ -46,6 +46,9 @@ API_BASE_URL=https://my-api.example.com/api/v3
 DEVICE_NAME=MyDevice
 ```
 
+The Vite configuration loads this file automatically, so any variables
+defined here are available without additional setup.
+
 When undefined, the client will default to Leasify's production API.
 When `DEVICE_NAME` is not set, login requests will use `ACME` as the
 `device_name` parameter.
