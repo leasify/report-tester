@@ -5,9 +5,11 @@ import ReportList from './components/ReportList';
 import { ping } from './api/auth';
 import { setToken } from './api/client';
 import WhoAmI from './components/WhoAmI';
+import TemplatesModal from './components/TemplatesModal';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [showTemplates, setShowTemplates] = useState(false);
   const deviceName =
     (import.meta.env && import.meta.env.DEVICE_NAME) ||
     (typeof process !== 'undefined' ? process.env.DEVICE_NAME : undefined) ||
@@ -26,6 +28,9 @@ function App() {
   const mainContent = loggedIn ? (
     <div className="max-w-3xl mx-auto mt-6 space-y-6 bg-white p-6 rounded shadow">
       <ReportForm onCreated={() => {}} />
+      <button onClick={() => setShowTemplates(true)} className="p-2">
+        Templates
+      </button>
       <ReportList />
       <div className="flex space-x-2">
         <WhoAmI />
@@ -44,6 +49,9 @@ function App() {
         </h1>
       </header>
       {mainContent}
+      {showTemplates && (
+        <TemplatesModal onClose={() => setShowTemplates(false)} />
+      )}
       {loggedIn && (
         <footer className="mt-4 p-2 text-center text-xs text-gray-500">
           bearer={token || ''}
