@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import LoginForm from './components/LoginForm';
-import ReportForm from './components/ReportForm';
+import NewReportModal from './components/NewReportModal';
 import ReportList from './components/ReportList';
 import { ping } from './api/auth';
 import { setToken } from './api/client';
@@ -25,7 +25,7 @@ function App() {
 
   const mainContent = loggedIn ? (
     <div className="max-w-3xl mx-auto mt-6 space-y-6 bg-white p-6 rounded shadow">
-      <ReportForm onCreated={() => {}} />
+      <NewReportModal onCreated={() => {}} />
       <ReportList />
       <div className="flex space-x-2">
         <WhoAmI />
