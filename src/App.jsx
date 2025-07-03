@@ -5,6 +5,7 @@ import ReportList from './components/ReportList';
 import { ping } from './api/auth';
 import { setToken } from './api/client';
 import WhoAmI from './components/WhoAmI';
+import ReportsModal from './components/ReportsModal';
 import TemplatesModal from './components/TemplatesModal';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       </button>
       <ReportList />
       <div className="flex space-x-2">
+        <ReportsModal />
         <WhoAmI />
         <button onClick={logout} className="p-2">Log out</button>
       </div>
